@@ -1,6 +1,7 @@
 package com.schiggzz.room
 
 import com.schiggzz.data.MessageDataSource
+import com.schiggzz.data.model.Message
 import io.ktor.http.*
 import io.ktor.http.cio.websocket.*
 import java.util.concurrent.ConcurrentHashMap
@@ -30,7 +31,7 @@ class RoomController (
         members.values.forEach {member ->
             val messageEntity = Message(
                 text = message,
-                username = senderUsername
+                username = senderUsername,
                 timestamp = System.currentTimeMillis()
             )
 
